@@ -16,5 +16,7 @@ Netsh wlan delete profile $WifiP
 #Change priority for wifi profile
 netsh wlan set profileorder name="$($WifiD)" interface="Wi-Fi" priority=1
 
-#Detection Rule
-New-Item -Force -Path "C:\Windows\MogisWifi.txt" -ItemType File
+#Create folder for detection method
+New-Item 'C:\Wifi' -itemType Directory
+$ConditionFile=Get-Item 'C:\Wifi' -Force
+$ConditionFile.attributes='Hidden'
